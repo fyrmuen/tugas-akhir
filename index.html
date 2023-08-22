@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Akhir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/tugasAkhir.css">
+    <link rel="stylesheet" href="css/styleButton.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="hero">
+                <h2 class="heading animate-charcter2">Selamat Datang Di Panduan Wudhu dan Shalat Wajib</h2>
+                <p class="sub-heading">Dibuat oleh Firman Hermansyah</p>
+            </div>
+            <div class="features featur-1">
+                <h4 class="item wudhu">Panduan Wudhu</h4>
+                <p class="item"><b>الْوُضُوْءُُ</b></p>
+            </div>
+            <div class="features featur-2">
+                <h4 class="item shalat">Panduan Shalat</h4>
+                <p class="item"><b>صَلَاةٌ</b></p>
+            </div>
+        </header>
+
+        <nav class="menu">
+            <!-- hamberger -->
+            <div class="menu-toggle">
+                <input type="checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="judul">
+                <h1 class="animate-charcter">Selamat Datang Di Aplikasi Website Panduan Wudhu dan Shalat Wajib</h1>
+            </div>
+            <ul class="menu-list">
+                <li><a class="glow-on-hover" href="#">Beranda</a></li>
+                <li><a class="glow-on-hover" href="wudhu/whudu.html">Wudhu</a></li>
+                <li><a class="glow-on-hover" href="Shalat/shalat.html">Shalat</a></li>
+            </ul>
+        </nav>
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle input')
+        const nav = document.querySelector('nav ul')
+
+        menuToggle.addEventListener('click', function () {
+            nav.classList.toggle('slide')
+        })
+
+    </script>
+</body>
+
+</html>

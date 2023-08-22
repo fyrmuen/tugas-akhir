@@ -1,0 +1,293 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    /* background */
+    --s: 200px;
+    /* control the size */
+    --c1: #1d1d1d;
+    --c2: #4e4f51;
+    --c3: #3c3c3c;
+
+    background:
+        repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 180deg) calc(.5*var(--s)) calc(.5*var(--s)*0.577),
+        repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
+    background-size: var(--s) calc(var(--s)*0.577);
+
+    font-size: 18px;
+    font-family: 'Signika Negative', sans-serif Arial, Helvetica, sans-serif;
+    /* margin: 2.5% 5%; */
+}
+
+/* container */
+.container {
+    display: grid;
+    gap: 0.3em;
+    margin: 0 0.7em;
+}
+
+/* header */
+.header {
+    display: grid;
+    grid-template-areas:
+        'hero hero featur-1'
+        'hero hero featur-2';
+    gap: 0.3em;
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 450px;
+    background-image: url(../image/masjid.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 60px;
+}
+
+.hero>* {
+    display: none;
+}
+
+/* features */
+.features {
+    background-color: black;
+    color: rgb(0, 0, 0);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.featur-1 {
+    grid-area: featur-1;
+    background-image: url(../image/wudhu.jpg);
+    background-size: cover;
+}
+
+.featur-2 {
+    grid-area: featur-2;
+    background-image: url(../image/shalat.jpeg);
+    background-size: cover;
+}
+
+.features .wudhu,
+.features .shalat {
+    font-size: 2em;
+}
+
+/* navigasi */
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin-top: 0.3em;
+}
+
+.menu .judul {
+    font-size: 1.2em;
+    margin: 0.5em 1em;
+}
+
+.menu ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1em;
+    margin-right: 0em;
+}
+
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+/* menu-toggle menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 70px;
+    height: 22px;
+    top: -1px;
+    left: -25px;
+    opacity: 0%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.7s;
+}
+
+/* menu-toggle span animasi */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: #000;
+    transform: rotate(45deg) translate(0.9px, 1.5px);
+}
+
+.menu-toggle input:checked~span:last-child {
+    background-color: #000;
+    transform: rotate(-45deg) translate(1.5px, -1.8px);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+
+/* responsive breakpoint */
+@media (max-width: 1204px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+        margin-top: 1em;
+    }
+
+    .menu .judul {
+        display: none;
+    }
+
+    .hero>* {
+        display: block;
+        font-size: 2em;
+    }
+
+        /* animasi judul */
+        .animate-charcter2 {
+            text-align: center;
+            text-transform: uppercase;
+            background-image: linear-gradient(-225deg,
+                    rgb(0, 255, 0) 0%,
+                    #ff00dd 29%,
+                    #001aff 67%,
+                    #000000 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: rgb(0, 0, 0);
+            background-clip: text;
+            text-emphasis-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 5s linear infinite;
+            display: inline-block;
+        }
+    
+        @keyframes textclip {
+            to {
+                background-position: -200% center;
+            }
+        }
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
+
+    .menu ul {
+        display: flex;
+        right: 0;
+        top: 0;
+        position: absolute;
+        flex-direction: column;
+        background-color: rgb(157, 173, 173);
+        height: 50vh;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 1;
+        width: 30%;
+        transform: translateY(-100%);
+        transition: all 0.8s;
+        opacity: 0;
+    }
+
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* animasi judul */
+        .animate-charcter2 {
+            text-align: center;
+            text-transform: uppercase;
+            background-image: linear-gradient(-225deg,
+                    rgb(0, 255, 0) 0%,
+                    #000 29%,
+                    #001aff 67%,
+                    #ff00dd 100%);
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: rgb(0, 0, 0);
+            background-clip: text;
+            text-emphasis-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textclip 5s linear infinite;
+            display: inline-block;
+        }
+    
+        @keyframes textclip {
+            to {
+                background-position: -200% center;
+            }
+        }
+}
+
+/* hanphone */
+@media (max-width: 600px) {
+    .header {
+        grid-template-areas:
+            'hero'
+            'featur-1'
+            'featur-2';
+        gap: 10px;
+    }
+
+    .hero>* {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .features {
+        min-height: 300px;
+    }
+}

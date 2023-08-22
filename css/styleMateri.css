@@ -1,0 +1,477 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+        --s: 3em;
+            /* control the size*/
+        --c1: #333;
+        --c2: #ccc;
+        --c3: #fff;
+    
+        --_g: 0 120deg, #0000 0;
+        background:
+            conic-gradient(from 0deg at calc(500%/6) calc(100%/3), var(--c3) var(--_g)),
+            conic-gradient(from -120deg at calc(100%/6) calc(100%/3), var(--c2) var(--_g)),
+            conic-gradient(from 120deg at calc(100%/3) calc(500%/6), var(--c1) var(--_g)),
+            conic-gradient(from 120deg at calc(200%/3) calc(500%/6), var(--c1) var(--_g)),
+            conic-gradient(from -180deg at calc(100%/3) 50%, var(--c2) 60deg, var(--c1) var(--_g)),
+            conic-gradient(from 60deg at calc(200%/3) 50%, var(--c1) 60deg, var(--c3) var(--_g)),
+            conic-gradient(from -60deg at 50% calc(100%/3), var(--c1) 120deg, var(--c2) 0 240deg, var(--c3) 0);
+        background-size: calc(var(--s)*1.732) var(--s);
+        
+
+    font-size: 18px;
+    /* margin: 2.5% 5%; */
+}
+
+/* container */
+.container {
+    display: grid;
+    gap: 0.3em;
+    margin: 0 0.7em;
+    overflow: hidden;
+}
+
+/* header */
+.header {
+    display: grid;
+    grid-template-areas:
+        'hero hero'
+        'hero hero';
+    gap: 0.3em;
+}
+
+.hero {
+    grid-area: hero;
+    min-height: 400px;
+    background-image: url(../image/wudhu2.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 60px;
+}
+
+.hero-shalat {
+    grid-area: hero;
+    min-height: 400px;
+    background-image: url(../image/shalat.jpeg);
+    background-size: cover;
+    background-position: center;
+    padding: 60px;
+}
+
+.hero>* {
+    display: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+.header, .menu{
+    font-family: 'Chewy', cursive;
+}
+/* features */
+/* .features {
+    background-color: black;
+    color: rgb(0, 0, 0);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.featur-1 {
+    grid-area: featur-1;
+    background-image: url(image/wudhu.jpg);
+    background-size: cover;
+}
+
+.featur-2 {
+    grid-area: featur-2;
+    background-image: url(image/shalat.jpeg);
+    background-size: cover;
+}
+
+.features .wudhu,
+.features .shalat {
+    font-size: 2em;
+}*/
+
+/* navigasi */
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+    margin-top: 0.3em;
+}
+
+.menu .judul {
+    font-size: 1.2em;
+    margin: 0.5em 1em;
+}
+
+.menu ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1em;
+    margin-right: 0em;
+}
+
+.menu a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.9em;
+} 
+
+/* menu-toggle menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 70px;
+    height: 22px;
+    top: -1px;
+    left: -25px;
+    opacity: 0%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: all 0.7s;
+}
+
+/* menu-toggle span animasi */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:last-child {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked~span:nth-child(2) {
+    background-color: #000;
+    transform: rotate(45deg) translate(0.9px, 1.5px);
+}
+
+.menu-toggle input:checked~span:last-child {
+    background-color: #000;
+    transform: rotate(-45deg) translate(1.5px, -1.8px);
+}
+
+.menu-toggle input:checked~span:nth-child(3) {
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* CONTENT */
+.content { 
+    width: 90vw;
+    height: auto;
+    margin-top: 1em;
+    background-color: rgba(3, 24, 26, 0.877);
+    margin: 0.2em auto;
+    padding: 1.2em;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+ul, ol {
+    padding: 1.2em;
+    box-sizing: border-box;
+}
+
+p {
+    text-indent: 3%;
+}
+
+#style-audio {
+    width: 30%;
+}
+audio::-webkit-media-controls-panel {
+    --s: 3em;
+    /* control the size */
+    --c1: #b2b2b2;
+    --c2: #ffffff;
+    --c3: #d9d9d9;
+
+    --_g: var(--c3) 0 120deg, #0000 0;
+    background:
+        conic-gradient(from -60deg at 50% calc(100%/3), var(--_g)),
+        conic-gradient(from 120deg at 50% calc(200%/3), var(--_g)),
+        conic-gradient(from 60deg at calc(200%/3), var(--c3) 60deg, var(--c2) 0 120deg, #0000 0),
+        conic-gradient(from 180deg at calc(100%/3), var(--c1) 60deg, var(--_g)),
+        linear-gradient(90deg, var(--c1) calc(100%/6), var(--c2) 0 50%,
+            var(--c1) 0 calc(500%/6), var(--c2) 0);
+    background-size: calc(1.732*var(--s)) var(--s);
+    color: white;
+}
+
+.video video {
+    display: grid;
+    width: 30%;
+    box-sizing: cover;
+    border: solid 8px;
+    border-image: linear-gradient(45deg, rgb(126, 192, 118), rgb(4, 22, 99), #dbe088) 1;
+    /* border-radius: 30% 30% 20% 20%; */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300&display=swap');
+.content p {
+    font-family: 'Kalam', cursive;
+    color: azure;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+.content ol, ul, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sriracha', cursive;
+    color: azure;
+}
+
+div .content h1 {
+    text-align: center;
+}
+
+#list-fardu {
+    text-indent: 0;
+}
+
+.text-arab {
+    font-size: 2em;
+}
+
+
+/* ====================================================================== */
+/* responsive breakpoint */
+@media (max-width: 1204px) {
+    .menu {
+        order: inherit;
+        grid-template-columns: 1fr;
+        margin-top: 1em;
+    }
+
+    .menu .judul {
+        display: none;
+    }
+
+    .hero>* {
+        display: block;
+        font-size: 2em;
+    }
+
+    /* animasi judul */
+    .animate-charcter2 {
+        text-align: center;
+        text-transform: uppercase;
+        background-image: linear-gradient(-225deg,
+                rgb(0, 255, 0) 0%,
+                #ff00dd 29%,
+                #001aff 67%,
+                #000000 100%);
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: rgb(0, 0, 0);
+        background-clip: text;
+        text-emphasis-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 5s linear infinite;
+        display: inline-block;
+    }
+
+    @keyframes textclip {
+        to {
+            background-position: -200% center;
+        }
+    }
+
+        #style-audio {
+            width: 50%;
+        }
+    
+        .video {
+            width: 160%;
+        }
+        /* p {
+            font-size: 0.9em;
+        }
+        ol,
+        ul {
+            font-size: 0.7em;
+        } */
+}
+
+/* tablet */
+@media (max-width: 768px) {
+    .menu {
+        order: -1;
+        justify-items: end;
+    }
+        ol,
+        ul {
+            font-size: 1em;
+        }
+    p {
+        font-size: 0.9em;
+    }
+
+    .menu ul {
+        display: flex;
+        right: 0;
+        top: 0;
+        position: absolute;
+        flex-direction: column;
+        background-color: rgb(157, 173, 173);
+        height: 50vh;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 1;
+        width: 30%;
+        transform: translateY(-100%);
+        transition: all 0.8s;
+        opacity: 0;
+    }
+
+    .menu ul.slide {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    /* animasi judul */
+    .animate-charcter2 {
+        text-align: center;
+        text-transform: uppercase;
+        background-image: linear-gradient(-225deg,
+                rgb(0, 255, 0) 0%,
+                #000 29%,
+                #001aff 67%,
+                #ff00dd 100%);
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: rgb(0, 0, 0);
+        background-clip: text;
+        text-emphasis-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 5s linear infinite;
+        display: inline-block;
+    }
+
+    @keyframes textclip {
+        to {
+            background-position: -200% center;
+        }
+    }
+
+    #style-audio {
+        width: 60%;
+    }
+
+    .video {
+        width: 190%;
+    }
+
+    .text-arab {
+        font-size: 1.9em;
+    }
+}
+
+/* hanphone */
+@media (max-width: 600px) {
+    /* .header {
+        grid-template-areas:
+            'hero'
+            'featur-1'
+            'featur-2';
+        gap: 10px;
+    }
+
+    .hero>* {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .features {
+        min-height: 300px;
+    } */
+
+        #style-audio {
+            width: 85%;
+        }
+        .video video {
+            width: 43%;
+        }
+
+    p {
+        font-size: 0.8em;
+    }
+    ol, ul {
+        font-size: 0.6;
+    }
+    .text-arab {
+        font-size: 1.2em;
+    }
+}
+
+/* image */
+.container4 {
+    display: flex;
+    width: 90%;
+    padding: 2% 1%;
+    box-sizing: border-box;
+    height: 60%;
+  }
+  
+  .box4 {
+    flex: 1;
+    overflow: hidden;
+    transition: .5s;
+    margin: 0 2%;
+    box-shadow: 0 20px 30px rgba(0,0,0,.1);
+    line-height: 0;
+  }
+  
+  .box4 > img {
+    width: 200%;
+    height: calc(100% - 10vh);
+    object-fit: cover; 
+    transition: .5s;
+  }
+  #fn-sz {
+    font-size: 1em;
+  }
+  .box4 > span {
+    font-size: 3.8vh;
+    display: block;
+    text-align: center;
+    height: 10vh;
+    line-height: 2.6;
+  }
+  
+  .box4:hover { flex: 1 1 50%; }
+  .box4:hover > img {
+    width: 100%;
+    height: 100%;
+  }
+   
