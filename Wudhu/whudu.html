@@ -41,7 +41,7 @@
             </div>
             <ul class="menu-list">
                 <li><a class="glow-on-hover" href="../index.html">Beranda</a></li>
-                <li><a class="glow-on-hover" href="../image/wudhu.jpg">Wudhu</a></li>
+                <li><a class="glow-on-hover" id="popupLinkWudhu">Wudhu</a></li>
                 <li><a class="glow-on-hover" href="../Shalat/shalat.html">Shalat</a></li>
             </ul>
         </nav>
@@ -510,6 +510,14 @@
         //audio
         const player = new Plyr('#style-audio');
 
+
+        //pop-up
+        
+        document.getElementById("popupLinkWudhu").addEventListener("click", function(event) {
+      event.preventDefault();
+      
+      alert("Anda sudah ada di halaman panduan wudhu");
+    });
     </script>
 </body>
 
